@@ -1,0 +1,10 @@
+<div class="row col-md-12">
+  <app-buttons
+    (increase)="onIncrease()"
+    (decrease)="onDecrease()"
+    (reset)="onReset()"
+  ></app-buttons>
+</div>
+<div class="row col-md-12">
+  <app-output [counter]="counter"></app-output>
+</div>
