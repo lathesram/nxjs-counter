@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable, Subject } from 'rxjs';
 import { ICounter } from '../state/counter.model';
 
 @Component({
@@ -8,11 +9,9 @@ import { ICounter } from '../state/counter.model';
   styleUrls: ['./output.component.scss'],
 })
 export class OutputComponent {
-  counter: number = 0;
+  counter$: Observable<ICounter> | undefined;
 
   constructor(private store: Store<{ counter: ICounter }>) {
-    store.select('counter').subscribe((value) => {
-      this.counter = value.counter;
-    });
+    this.counter$ = store.select('counter');
   }
 }
