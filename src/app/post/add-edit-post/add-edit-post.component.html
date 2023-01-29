@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+  <div class="row">
+    <label>Title</label>
+    <input type="text" formControlName="title" required />
+  </div>
+  <div class="row">
+    <label>Description</label>
+    <input type="text" formControlName="description" required />
+  </div>
+
+  <div class="row my-3" style="text-align: center">
+    <button
+      (click)="onSubmitClicked()"
+      [disabled]="this.form.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Add New Post
+    </button>
+  </div>
+</form>

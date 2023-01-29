@@ -1,24 +1,24 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { CounterComponent } from './counter/counter/counter.component';
-import { OutputComponent } from './counter/output/output.component';
-import { ButtonsComponent } from './counter/buttons/buttons.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter/state/counter.reducer';
-import { CustomCounterComponent } from './counter/custom-counter/custom-counter.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-router.module';
+import { HeaderComponent } from './shared/header/header.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { counterReducer } from './store/counter/counter.reducer';
+import { postReducer } from './store/post/post.reducer';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CounterComponent,
-    OutputComponent,
-    ButtonsComponent,
-    CustomCounterComponent,
+  declarations: [AppComponent, HomeComponent, HeaderComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    StoreModule.forRoot({ counter: counterReducer, posts: postReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
-  imports: [BrowserModule, FormsModule, StoreModule.forRoot({ counter: counterReducer })],
   providers: [],
   bootstrap: [AppComponent],
 })

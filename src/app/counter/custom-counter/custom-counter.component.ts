@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CustomIncrease, UpdateTitle } from '../state/counter.action';
-import {
-  ICounter,
-  ICustomCounterValue,
-  IUpdateTitle,
-} from '../state/counter.model';
-
+import { IAppState } from 'src/app/store/app.state';
+import { CustomIncrease, UpdateTitle } from 'src/app/store/counter/counter.action';
+import { ICustomCounterValue, IUpdateTitle } from 'src/app/store/counter/counter.model';
 @Component({
   selector: 'app-custom-counter',
   templateUrl: './custom-counter.component.html',
@@ -16,7 +12,7 @@ export class CustomCounterComponent {
   value!: number;
   siteName = '';
 
-  constructor(private store: Store<{ counter: ICounter }>) {}
+  constructor(private store: Store<IAppState>) {}
 
   onCustomValueSelected() {
     const customCounterValue: ICustomCounterValue = {
