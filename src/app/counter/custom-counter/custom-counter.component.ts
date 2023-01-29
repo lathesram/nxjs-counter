@@ -13,7 +13,7 @@ import {
   styleUrls: ['./custom-counter.component.scss'],
 })
 export class CustomCounterComponent {
-  value = 0;
+  value!: number;
   siteName = '';
 
   constructor(private store: Store<{ counter: ICounter }>) {}

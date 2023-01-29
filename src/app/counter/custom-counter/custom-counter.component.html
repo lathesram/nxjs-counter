@@ -1,5 +1,10 @@
-<div class="row">
-  <input type="text" [(ngModel)]="value" />
+<div class="row my-3">
+  <input
+    placeholder="Update Counter by Custom Number"
+    style="width: 50%"
+    type="text"
+    [(ngModel)]="value"
+  />
   <br />
   <button class="btn btn-info" (click)="onCustomValueSelected()">
     Increase
@@ -7,6 +12,9 @@
 </div>
 
 <div class="row">
-  <input type="text" [(ngModel)]="siteName" />
-  <button (click)="onUpdateTitle()">Update Site Name</button>
+  <input style="width: 50%" type="text" [(ngModel)]="siteName" />
+  <br />
+  <button class="btn btn-info" (click)="onUpdateTitle()">
+    Update Site Name
+  </button>
 </div>
