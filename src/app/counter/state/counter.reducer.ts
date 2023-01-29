@@ -4,6 +4,7 @@ import {
   DecreaseCounter,
   IncreaseCounter,
   ResetCounter,
+  UpdateTitle,
 } from './counter.action';
 import { initialCounter } from './counter.state';
 
@@ -28,7 +29,12 @@ export const counterReducer = createReducer(
     };
   }),
   on(CustomIncrease, (state, action) => {
-    console.log(action);
     return { ...state, counter: state.counter + action.value };
+  }),
+  on(UpdateTitle, (state, action) => {
+    return {
+      ...state,
+      siteName: action.siteName,
+    };
   })
 );

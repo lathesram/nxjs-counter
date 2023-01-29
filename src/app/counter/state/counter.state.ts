@@ -1,5 +1,6 @@
 import { ICounter } from './counter.model';
 
 export const initialCounter: ICounter = {
-  counter: 5,
+  counter: 0,
+  siteName: 'Initial Name'
 };

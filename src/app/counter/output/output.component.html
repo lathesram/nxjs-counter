@@ -1,3 +1,7 @@
 <div class="row col-md-12" style="text-align: center">
-  <h1>{{ (this.counter$ | async)?.counter }}</h1>
+  <h1>{{ this.counter$ | async }}</h1>
+</div>
+
+<div class="row col-md-12" style="text-align: center">
+  <h1>{{ this.siteName$ | async }}</h1>
 </div>
