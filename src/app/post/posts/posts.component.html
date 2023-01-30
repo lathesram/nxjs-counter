@@ -19,6 +19,9 @@
           <td>{{ post.title }}</td>
           <td>{{ post.description }}</td>
           <td>
+            <button class="btn btn-info" (click)="onUpdateClicked(post.id)">
+              Update
+            </button>
             <button class="btn btn-warn" (click)="onDeleteClicked(post.id)">
               Delete
             </button>

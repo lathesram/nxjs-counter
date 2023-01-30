@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IAppState } from 'src/app/store/app.state';
@@ -14,13 +15,15 @@ import { getPosts } from 'src/app/store/post/post.selector';
 export class PostsComponent {
   posts$: Observable<IPost[] | undefined>;
 
-  constructor(private store: Store<IAppState>) {
+  constructor(private store: Store<IAppState>, private router: Router) {
     this.posts$ = store.select(getPosts);
   }
 
-  onUpdateClicked(index: number) {}
-
   onDeleteClicked(index: number) {
     this.store.dispatch(deletePost({ index }));
+  }
+
+  onUpdateClicked(index: number) {
+    this.router.navigate([`posts/${index}/edit`]);
   }
 }
