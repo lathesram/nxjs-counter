@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="row">
+      <h6>Login</h6>
+      <hr />
+    </div>
+    <div class="row">
+      <form [formGroup]="form">
+        <div class="row mb-3">
+          <label>Email</label>
+          <input formControlName="email" type="email" />
+          <div
+            *ngIf="
+              this.form.get('email')?.touched && this.form.get('email')?.invalid
+            "
+            style="color: red; font-size: medium"
+          >
+            Invalid Email
+          </div>
+        </div>
+        <div class="row my-3">
+          <label>Password</label>
+          <input formControlName="password" type="password" />
+          <div
+            *ngIf="
+              this.form.get('password')?.touched &&
+              this.form.get('password')?.invalid
+            "
+            style="color: red; font-size: medium"
+          >
+            Invalid Password
+          </div>
+        </div>
+        <div class="row my-3" style="text-align: center">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
